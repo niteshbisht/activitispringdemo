@@ -1,0 +1,73 @@
+{
+  "steps": [
+    {
+      "id": "1",
+      "stepName": "create",
+      "actions": [
+        {
+          "uiAction": "review",
+          "nextStepId": "2",
+          "nextStep": "continue"
+        },
+        {
+          "uiAction": "complete",
+          "nextStepId": "8",
+          "nextStep": "end"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "stepName": "review",
+      "actions": [
+        {
+          "uiAction": "needapproval",
+          "nextStepId": "3",
+          "nextStep": "continue"
+        },
+        {
+          "uiAction": "complete",
+          "nextStepId": "8",
+          "nextStep": "end"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "stepName": "needapproval",
+      "actions": [
+        {
+          "uiAction": "approved",
+          "nextStepId": "8",
+          "nextStep": "end"
+        },
+        {
+          "uiAction": "superapproval",
+          "nextStepId": "4",
+          "nextStep": "continue"
+        },
+        {
+          "uiAction": "complete",
+          "nextStepId": "8",
+          "nextStep": "end"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "stepName": "superapproval",
+      "actions": [
+        {
+          "uiAction": "superapproved",
+          "nextStepId": "8",
+          "nextStep": "end"
+        },
+        {
+          "uiAction": "reject",
+          "nextStepId": "2",
+          "nextStep": "continue"
+        }
+      ]
+    }
+  ]
+}
