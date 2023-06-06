@@ -109,10 +109,10 @@ public class ProcessRestController {
 					if(actionnode.get("uiAction").asText().equals(action)) {
 						final String nextStepId = actionnode.get("nextStepId").asText();
 						final String nextStep = actionnode.get("nextStep").asText();
-						Map<String, Object> copyMap = new HashMap<>(processVariables);
-						copyMap.put("stepId", nextStepId);
-						copyMap.put("nextStep", nextStep);
-						taskService.complete(taskId, copyMap, false);
+						// Map<String, Object> copyMap = new HashMap<>(processVariables);
+						processVariables.put("stepId", nextStepId);
+						processVariables.put("nextStep", nextStep);
+						taskService.complete(taskId, processVariables);
 						finishedTask = true;
 						break;
 					}
